@@ -1,0 +1,70 @@
+-- ==========================================
+-- EXZ HUB (Clean & Safe for Delta)
+-- ==========================================
+pcall(function()
+    if game:GetService("CoreGui"):FindFirstChild("MacLib_EXZ") then
+        game:GetService("CoreGui").MacLib_EXZ:Destroy()
+    end
+end)
+
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "MacLib_EXZ"
+ScreenGui.Parent = game:GetService("CoreGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(28, 28, 30)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.5, -225, 0.5, -150)
+MainFrame.Size = UDim2.new(0, 450, 0, 300)
+MainFrame.ClipsDescendants = true
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 12)
+UICorner.Parent = MainFrame
+
+local TopBar = Instance.new("Frame")
+TopBar.Name = "TopBar"
+TopBar.Parent = MainFrame
+TopBar.BackgroundColor3 = Color3.fromRGB(35, 35, 38)
+TopBar.Size = UDim2.new(1, 0, 0, 35)
+
+local TopCorner = Instance.new("UICorner")
+TopCorner.CornerRadius = UDim.new(0, 12)
+TopCorner.Parent = TopBar
+
+local Title = Instance.new("TextLabel")
+Title.Parent = TopBar
+Title.BackgroundTransparency = 1
+Title.Size = UDim2.new(1, 0, 1, 0)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "EXZ HUB | Loaded Successfully!"
+Title.TextColor3 = Color3.fromRGB(220, 220, 225)
+Title.TextSize = 14
+
+local CloseBtn = Instance.new("TextButton")
+CloseBtn.Parent = TopBar
+CloseBtn.BackgroundColor3 = Color3.fromRGB(255, 95, 87)
+CloseBtn.Position = UDim2.new(0, 12, 0.5, -6)
+CloseBtn.Size = UDim2.new(0, 12, 0, 12)
+CloseBtn.Text = ""
+
+local CloseCorner = Instance.new("UICorner")
+CloseCorner.CornerRadius = UDim.new(1, 0)
+CloseCorner.Parent = CloseBtn
+
+CloseBtn.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
+end)
+
+print("EXZ HUB UI Loaded!")
+  
